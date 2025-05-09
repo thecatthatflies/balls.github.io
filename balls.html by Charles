@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Squishy squishy Balls</title>
+    </head>
+    <body id="body">
+        <div id="ball">&nbsp;</div>
+        <div id="ball2">&nbsp;</div>
+        <p id="sef">Squish 'em good</p>
+        <style>
+            /* body {
+                animation: changeColor 0.5s infinite;
+            } */
+            p {
+                position: fixed;
+                z-index: 999;
+                background: white;
+                padding: 10px;
+                display: block;
+                margin-left:500px;
+                top: 0;
+                right: 0;
+                margin-top: 0;
+                font-size: 50pt;
+            }
+            .show {
+                display: block !important;
+            }
+            @keyframes changeColor {
+                0% {background:red;color:purple;}
+                16% {background:orange;color:red;}
+                33% {background:yellow;color:orange;}
+                48% {background:green;color:yellow;}
+                66% {background:blue;color:green;}
+                82% {background:purple;color:blue;}
+                100% {background:red;color:purple;}
+            }
+            #ball {
+                padding: 50px;
+                width: 200px;
+                height:200px;
+                border-radius: 150px;
+                background: linear-gradient(90deg, red, orange, yellow, green, blue);
+                animation: getsmaller 2s infinite linear;
+            }
+            #ball:hover {
+                animation: grow 4s infinite;
+            }
+            #ball2 {
+                padding: 50px;
+                width: 50px;
+                height:50px;
+                border-radius: 150px;
+                background: linear-gradient(0deg, red, orange, yellow, green, blue);
+                animation: getsmaller2 2s infinite linear;
+            }
+            #ball2:hover {
+                animation: grow 3s infinite;
+            }
+            @keyframes grow {
+                0% {
+                    width: 200px;
+                    height:200px;
+                    transform: rotateY(0deg);
+                    background: linear-gradient(90deg, red, orange, yellow, green, blue);
+                }
+                20% {
+                    width: 2000px;
+                    height:2000px;
+                    border-radius: 1050px;
+                    transform: rotateY(72deg);
+                    background: linear-gradient(90deg, orange, yellow, green, blue, red);
+                }
+                40% {
+                    width: 200px;
+                    height:200px;
+                    transform: rotateY(144deg);
+                    background: linear-gradient(90deg, yellow, green, blue, red, orange);
+                }
+                60% {
+                    width: 200px;
+                    height:200px;
+                    transform: rotateY(216deg);
+                    background: linear-gradient(90deg, green, blue, red, orange, yellow);
+                }
+                80% {
+                    width: 2000px;
+                    height:2000px;
+                    border-radius: 1050px;
+                    transform: rotateY(288deg);
+                    background: linear-gradient(90deg, blue, red, orange, yellow, green);
+                }
+                100% {
+                    width: 200px;
+                    height:200px;
+                    transform: rotateY(0deg);
+                    background: linear-gra9dient(90deg, red, orange, yellow, green, blue);
+                }
+            }
+            @keyframes grow2 {
+                0% {
+                    width: 1000px;
+                    height:1000px;
+                    border-radius: 550px;
+                    transform: rotateY(0deg);
+                    background: linear-gradient(0deg, red, orange, yellow, green, blue);
+                }
+                20% {
+                    width: 200px;
+                    height:200px;
+                    border-radius: 550px;
+                    transform: rotateY(72deg);
+                    background: linear-gradient(0deg, orange, yellow, green, blue, red);
+                }
+                40% {
+                    width: 1000px;
+                    height:1000px;
+                    border-radius: 550px;
+                    transform: rotateY(144deg);
+                    background: linear-gradient(0deg, yellow, green, blue, red, orange);
+                }
+                60% {
+                    width: 1000px;
+                    height:1000px;
+                    border-radius: 550px;
+                    transform: rotateY(216deg);
+                    background: linear-gradient(0deg, green, blue, red, orange, yellow);
+                }
+                80% {
+                    width: 200px;
+                    height:200px;
+                    border-radius: 550px;
+                    transform: rotateY(288deg);
+                    background: linear-gradient(0deg, blue, red, orange, yellow, green);
+                }
+                100% {
+                    width: 1000px;
+                    height:1000px;
+                    border-radius: 550px;
+                    transform: rotateY(0deg);
+                    background: linear-gra9dient(0deg, red, orange, yellow, green, blue);
+                }
+            }
+            @keyframes getsmaller {
+                0% {
+                    width: 200px;
+                    height:200px;
+                }
+                50% {
+                    width: 50px;
+                    height:50px;
+                }
+                100% {
+                    width: 200px;
+                    height:200px;
+                }
+            }
+            @keyframes getsmaller2 {
+                0% {
+                    width: 50px;
+                    height:50px;
+                }
+                50% {
+                    width: 200px;
+                    height:200px;
+                }
+                100% {
+                    width: 50px;
+                    height:50px;
+                }
+            }
+            div {
+                box-shadow: 2px 2px 4px 3px;
+            }
+        </style>
+        <script>
+            var i = 1;
+            document.getElementById("ball").addEventListener("mousedown", function() {
+                // alert("squish me");
+                if (i % 2 === 0) {
+                    document.getElementById("ball").style = "width:200px;height:200px;border-radius:150px; animation: grow 2s infinite;margin-left: "+Event.mouseX+"px;margin-top: "+Event.mouseY+"px;";
+                    document.getElementById("ball2").style = "width:200px;height:200px;border-radius:150px; animation: grow2 2s infinite;";
+                    document.getElementById("body").style = "animation:changeColor 0.5s infinite;";
+                } else {
+                    document.getElementById("ball").style = "width:200px;height:200px;border-radius:150px;";
+                    document.getElementById("ball2").style = "width:200px;height:200px;border-radius:150px;";
+                    document.getElementById("body").style = "";
+                }
+                if (i % 2 === 0) {
+                    document.getElementById("sef").style = "position: fixed;z-index: 999;background: white;padding: 10px;display: block;right:0;top:0;margin-top:0;animation:changeColor 0.5s infinite;";
+                    document.getElementById("sef").innerHTML = "Squish 'em really good";
+                } else {
+                    document.getElementById("sef").style = "position: fixed;z-index: 999;background: white;padding: 10px;display: block;right:0;top:0;margin-top:0;";
+                    document.getElementById("sef").innerHTML = "Squish 'em good";
+                }
+                i++;
+            });
+            document.getElementById("ball2").addEventListener("mousedown", function() {
+                // alert("squish me");
+                if (i % 2 === 0) {
+                    document.getElementById("ball").style = "width:200px;height:200px;border-radius:150px; animation: grow 2s infinite;margin-left: "+Event.mouseX+"px;margin-top: "+Event.mouseY+"px;";
+                    document.getElementById("ball2").style = "width:200px;height:200px;border-radius:150px; animation: grow2 2s infinite;";
+                    document.getElementById("body").style = "animation:changeColor 0.5s infinite;";
+                } else {
+                    document.getElementById("ball").style = "width:200px;height:200px;border-radius:150px;";
+                    document.getElementById("ball2").style = "width:200px;height:200px;border-radius:150px;";
+                    document.getElementById("body").style = "";
+                }
+                if (i % 2 === 0) {
+                    document.getElementById("sef").style = "position: fixed;z-index: 999;background: white;padding: 10px;display: block;right:0;top:0;margin-top:0;animation:changeColor 0.5s infinite;";
+                    document.getElementById("sef").innerHTML = "Squish 'em really good";
+                } else {
+                    document.getElementById("sef").style = "position: fixed;z-index: 999;background: white;padding: 10px;display: block;right:0;top:0;margin-top:0;";
+                    document.getElementById("sef").innerHTML = "Squish 'em good";
+                }
+                i++;
+            });
+            var grape = 0;
+            document.addEventListener("keydown", function(Event) {
+                if (Event.key === " ") {
+                    document.getElementById("ball").style = "width:200px;height:200px;border-radius:150px; animation: grow 2s infinite;margin-left: "+Event.mouseX+"px;margin-top: "+Event.mouseY+"px;";
+                    document.getElementById("ball2").style = "width:200px;height:200px;border-radius:150px; animation: grow2 2s infinite;";
+                    document.getElementById("body").style = "animation:changeColor 0.5s infinite;";
+                    document.getElementById("sef").style = "position: fixed;z-index: 999;background: white;padding: 10px;display: block;right:0;top:0;margin-top:0;animation:changeColor 0.5s infinite;";
+                    document.getElementById("sef").innerHTML = "Squish 'em really good";
+                }
+                if (Event.key === "c") {
+                    document.getElementById("ball").style = "width:200px;height:200px;border-radius:150px;";
+                    document.getElementById("ball2").style = "width:200px;height:200px;border-radius:150px;";
+                    document.getElementById("body").style = "";
+                    document.getElementById("sef").style = "position: fixed;z-index: 999;background: white;padding: 10px;display: block;right:0;top:0;margin-top:0;";
+                    document.getElementById("sef").innerHTML = "Squish 'em good";
+                }
+                if (Event.key === "q") {
+                    alert("ah... the squish");
+                    document.getElementById("ball").style = "width:2000px !important;height:2000px !important;border-radius:1500px;";
+                    document.getElementById("ball2").style = "width:2000px !important;height:2000px !important;border-radius:1500px;";
+                }
+                if (Event.key === "w") {
+                    alert("AAAAAAHAHAHAAHAHAAHAAHHAAHAAAHAAAHAAHAHHA");
+                    document.getElementById("ball").style = "width:20000px !important;height:20000px !important;border-radius:15000px;";
+                    document.getElementById("ball2").style = "width:20000px !important;height:20000px !important;border-radius:15000px;";
+                }
+                if (Event.key === "g") {
+                    alert("goofy ahh ballz");
+                    document.getElementById("ball").style = "width:20px !important;height:20000px !important;border-radius:15000px;animation: changeColor 0.5s infinite !important;";
+                    document.getElementById("ball2").style = "width:20px !important;height:20000px !important;border-radius:15000px;animation: changeColor 0.5s infinite !important;";
+                }
+                if (Event.key === "p") {
+                    document.getElementById("ball").style = "width:200px !important;height:200px !important;border-radiuion: getsmaller 2s infinite linear !important;";
+                    document.getElementById("ball2").style = "width:200px !important;height:200px !important;border-radius:15000px;animation: getsmaller2 2s infinite linear !important;";
+                }
+            });
+        </script>
+    </body>
+</html> 
